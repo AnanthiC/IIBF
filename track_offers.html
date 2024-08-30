@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Booked Offers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .section {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+        }
+        .card-number {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .filter-transactions {
+            margin-top: 20px;
+        }
+        .filter-transactions h2 {
+            font-size: 1.5em;
+        }
+        .filter-transactions label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .filter-transactions input[type="date"] {
+            padding: 5px;
+            margin-right: 10px;
+        }
+        .filter-transactions button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .filter-transactions button:hover {
+            background-color: #0056b3;
+        }
+        .no-offers {
+            background-color: #e8f4fc;
+            padding: 10px;
+            border: 1px solid #b3d7ef;
+            color: #31708f;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <h1>Track Booked Offers</h1>
+        <p>Track the status of offers booked by you, as on 04-Aug-2024.</p>
+        <div class="card-number">My Card: XXXX-XXXX-XXXX-3997</div>
+    </div>
+    <div class="section filter-transactions">
+        <h2>Filter Transactions</h2>
+        <div>
+            <input type="radio" id="quick" name="filter" checked>
+            <label for="quick">Quick</label>
+            <input type="radio" id="advanced" name="filter">
+            <label for="advanced">Advanced</label>
+        </div>
+        <form>
+            <label for="start-date">Date Range (Please select a range from past 24 months till date):</label>
+            <input type="date" id="start-date" name="start-date" value="2024-05-04">
+            <input type="date" id="end-date" name="end-date" value="2024-08-04">
+            <button type="submit">Go</button>
+        </form>
+        <div class="no-offers">You have not booked any Offer so far.</div>
+    </div>
+    <div class="section">
+        <a href="emi.html">Back to EMI & More</a>
+    </div>
+</body>
+</html>
+

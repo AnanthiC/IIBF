@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Connect</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .unsubscribe-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .unsubscribe-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Your subscription to WhatsApp Connect is active</h1>
+        <p>All important updates regarding your Card account are being sent to you on WhatsApp.</p>
+        <h2>Unsubscribe?</h2>
+        <p>You can unsubscribe at any time by clicking 'Unsubscribe' below.</p>
+        <button class="unsubscribe-button" onclick="unsubscribe()">Unsubscribe</button>
+    </div>
+    <script>
+        function unsubscribe() {
+            alert("Unsubscribed successfully");
+        }
+    </script>
+</body>
+</html>
+

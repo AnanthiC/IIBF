@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report a Lost/Stolen Card</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #ffffff;
+        }
+        h1 {
+            color: #007BFF;
+        }
+        .step {
+            margin-bottom: 20px;
+        }
+        .step-number {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-size: 16px;
+        }
+        .card-info, .reason-select, .reissue-info, .manage-card-usage {
+            margin-top: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #e7f3ff;
+        }
+        .card-info select, .reason-select select {
+            margin-top: 10px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+        }
+        .reissue-info, .manage-card-usage {
+            font-size: 14px;
+        }
+        .reissue-info address {
+            margin-top: 10px;
+            font-style: normal;
+        }
+        .manage-card-usage h2 {
+            margin-top: 0;
+        }
+        .transaction-type {
+            margin-bottom: 10px;
+        }
+        .note {
+            background-color: #e7f3ff;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+        .confirm-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .confirm-button:hover {
+            background-color: #0056b3;
+        }
+        .toggle-switch {
+            display: inline-block;
+            width: 34px;
+            height: 20px;
+            position: relative;
+        }
+        .toggle-switch input {
+            display: none;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 20px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 14px;
+            width: 14px;
+            border-radius: 50%;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+        }
+        input:checked + .slider {
+            background-color: #007BFF;
+        }
+        input:checked + .slider:before {
+            transform: translateX(14px);
+        }
+    </style>
+    <script>
+        function showConfirmation() {
+            alert("Your preferences have been saved.");
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="step">
+            <span class="step-number">1</span>
+            <span>Report a Lost or Stolen Card</span>
+            <div class="card-info">
+                <input type="radio" id="primary-card" name="card" checked>
+                <label for="primary-card">XXXX-XXXX-XXXX-3997 (Primary Card)</label>
+            </div>
+        </div>
+        <div class="step">
+            <span class="step-number">2</span>
+            <span>Select the reason for blocking your card</span>
+            <div class="reason-select">
+                <select>
+                    <option value="" disabled selected>Select a reason</option>
+                    <option value="lost-stolen">Card is lost/Stolen</option>
+                    <!-- Add more options if needed -->
+                </select>
+            </div>
+        </div>
+        <div class="step">
+            <span class="step-number">3</span>
+            <span>Re-issue Card</span>
+            <div class="reissue-info">
+                <p>Continue shopping with your new re-issued Credit Card. Enjoy exciting offers & save more! For details, <a href="#">Click Here</a>.</p>
+                <p>Your new card will be dispatched to you at your residential address:</p>
+                <address>
+                    xxxxxxxxx<br>
+                    xxxxxxxxx<br>
+                    xxxxxxxxx<br>
+                </address>
+            </div>
+        </div>
+        <div class="step">
+            <span class="step-number">4</span>
+            <span>Manage Card Usage</span>
+            <div class="manage-card-usage">
+                <h2>Set your Domestic and International Transaction Usage</h2>
+                <p>Domestic Point of Sale (POS) & Domestic ATM transaction usage will remain same as per your current card preference.</p>
+                <p>Please select the categories for which you would like to activate the transaction usage on your new re-issued card.</p>
+                <div class="transaction-type">
+                    <h3>Domestic Transactions</h3>
+                    <label>
+                        Online Transaction
+                        <div class="toggle-switch">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                        </div>
+                    </label>
+                    <label>
+                        Contactless Transaction
+                        <div class="toggle-switch">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                        </div>
+                    </label>
+                </div>
+                <div class="transaction-type">
+                    <h3>International Transactions</h3>
+                    <label>
+                        Online Transactions
+                        <div class="toggle-switch">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                        </div>
+                    </label>
+                </div>
+                <div class="note">
+                    <p><strong>Note -</strong></p>
+                    <ul>
+                        <li>When switched on, the category limit for transaction usage will be set to 100% of available credit/cash limit.</li>
+                        <li>You can also manage these switches from the 'Manage Card Usage' section at any point of time.</li>
+                    </ul>
+                </div>
+                <button class="confirm-button" onclick="showConfirmation()">Confirm</button>
+            </div>
+        </div>
+    </div>
+    <a href="services.html">Back to Services</a>
+</body>
+</html>
+
+

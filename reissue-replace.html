@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Re-issue/Replace Card</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #ffffff;
+        }
+        h1 {
+            color: #007BFF;
+        }
+        .step {
+            margin-bottom: 20px;
+        }
+        .step-number {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-size: 16px;
+        }
+        .card-info, .reason-select, .reissue-info {
+            margin-top: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #e7f3ff;
+        }
+        .card-info select, .reason-select select {
+            margin-top: 10px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+        }
+        .reissue-info {
+            font-size: 14px;
+        }
+        .reissue-info address {
+            margin-top: 10px;
+            font-style: normal;
+        }
+        .confirm-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .confirm-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <script>
+        function showConfirmation() {
+            alert("Your request has been submitted.");
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Request to Re-issue a blocked card or Replace a Damaged Card</h1>
+        <div class="step">
+            <span class="step-number">1</span>
+            <span>Select the Card you want to reissue / replace</span>
+            <div class="card-info">
+                <input type="radio" id="primary-card" name="card" checked>
+                <label for="primary-card">XXXX-XXXX-XXXX-3997 (Primary Card)</label>
+            </div>
+        </div>
+        <div class="step">
+            <span class="step-number">2</span>
+            <span>Select the reason for reissue / replace</span>
+            <div class="reason-select">
+                <select>
+                    <option value="lost-stolen">Card is lost/Stolen</option>
+                    <option value="damaged">Card is damaged</option>
+                    <!-- Add more options if needed -->
+                </select>
+            </div>
+        </div>
+        <div class="reissue-info">
+            <p>Continue shopping with your new re-issued Credit Card. Enjoy exciting offers & save more! For details, <a href="#">Click Here</a>.</p>
+            <p>Your new card will be dispatched to you at your residential address:</p>
+            <address>
+                xxxxxxxxx<br>
+                xxxxxxxxx<br>
+                xxxxxxxxx<br>
+            </address>
+        </div>
+        <button class="confirm-button" onclick="showConfirmation()">Confirm</button>
+    </div>
+    <a href="services.html">Back to Services</a>
+</body>
+</html>

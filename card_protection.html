@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Protection Plan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .section {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+        }
+        .plans {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .plan {
+            flex: 1;
+            padding: 10px;
+            margin: 0 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+            background-color: #f4f4f4;
+        }
+        .plan.selected {
+            background-color: #cce5ff;
+            border-color: #007bff;
+        }
+        .plan input[type="radio"] {
+            display: none;
+        }
+        .plan label {
+            display: block;
+            cursor: pointer;
+            padding: 10px;
+        }
+        .proceed-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            display: inline-block;
+            margin-top: 20px;
+            cursor: pointer;
+            border: none;
+        }
+        .proceed-btn:hover {
+            background-color: #0056b3;
+        }
+        .info-section {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .info-box {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            border: 1px solid #ddd;
+            background-color: #fff;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <h1>Card Protection Plan</h1>
+        <p>Protect yourself with India's first comprehensive CPP card protection service, in the event of card loss, theft or fraud.</p>
+    </div>
+    <div class="section">
+        <h2>Select A Yearly Plan</h2>
+        <div class="plans">
+            <div class="plan selected">
+                <input type="radio" id="classic" name="plan" checked>
+                <label for="classic">Classic + ₹1899</label>
+            </div>
+            <div class="plan">
+                <input type="radio" id="premium" name="plan">
+                <label for="premium">Premium + ₹2499</label>
+            </div>
+            <div class="plan">
+                <input type="radio" id="platinum" name="plan">
+                <label for="platinum">Platinum + ₹3199</label>
+            </div>
+        </div>
+        <p>Yes, I agree to buy CPP Card Protection Plan (as per the price mentioned above) and pay the membership fee using my  Card...read more</p>
+        <button class="proceed-btn">Proceed to Buy</button>
+    </div>
+    <div class="section info-section">
+        <div class="info-box">
+            <h3>Benefits</h3>
+            <p>Avail several benefits on your CPP membership.</p>
+        </div>
+        <div class="info-box">
+            <h3>Protection Plans</h3>
+            <p>Protect yourself with India's first comprehensive card protection plan.</p>
+        </div>
+        <div class="info-box">
+            <h3>FAQ's</h3>
+            <p>Frequently Asked Questions</p>
+        </div>
+        <div class="info-box">
+            <h3>Terms & Conditions</h3>
+            <p>The Important Terms and Conditions of your membership</p>
+        </div>
+    </div>
+</body>
+</html>

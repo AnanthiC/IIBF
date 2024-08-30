@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment History</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .total {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Payment History</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Payment Amount</th>
+                    <th>Payment Method</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2024-07-15</td>
+                    <td>₹5,000.00</td>
+                    <td>Credit Card</td>
+                </tr>
+                <tr>
+                    <td>2024-06-10</td>
+                    <td>₹3,500.00</td>
+                    <td>Bank Transfer</td>
+                </tr>
+                <tr>
+                    <td>2024-05-05</td>
+                    <td>₹4,000.00</td>
+                    <td>Credit Card</td>
+                </tr>
+                <tr>
+                    <td>2024-04-20</td>
+                    <td>₹2,750.00</td>
+                    <td>UPI</td>
+                </tr>
+                <tr>
+                    <td>2024-03-18</td>
+                    <td>₹6,000.00</td>
+                    <td>Net Banking</td>
+                </tr>
+                <tr>
+                    <td>2024-02-12</td>
+                    <td>₹3,200.00</td>
+                    <td>Debit Card</td>
+                </tr>
+                <tr>
+                    <td>2024-01-10</td>
+                    <td>₹5,500.00</td>
+                    <td>Credit Card</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td class="total">Total Payments</td>
+                    <td class="total">₹29,950.00</td>
+                    <td></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</body>
+</html>
+

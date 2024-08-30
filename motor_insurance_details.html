@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motor Insurance Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        h1 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .insurance-details {
+            text-align: center;
+        }
+        .insurance-details p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .button-container button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 0 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+        .proceed-button {
+            background-color: #007bff;
+            color: white;
+        }
+        .cancel-button {
+            background-color: #dc3545;
+            color: white;
+        }
+    </style>
+    <script>
+        function proceed() {
+            alert("Proceeded successfully");
+        }
+
+        function cancel() {
+            alert("Canceled");
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Motor Private Car Insurance Policy</h1>
+        <div class="insurance-details">
+            <p>SBI General Insurance offers a comprehensive Motor Private Car Insurance Policy to protect your vehicle against loss, damage, theft, and third-party liabilities. This policy ensures that you are covered for unforeseen incidents, providing peace of mind on the road.</p>
+            <p>Key Features:</p>
+            <ul>
+                <li>Coverage against accidental damage and theft</li>
+                <li>Third-party liability coverage</li>
+                <li>Personal accident cover for the driver</li>
+                <li>Optional add-ons like roadside assistance, engine protection, etc.</li>
+            </ul>
+        </div>
+        <div class="button-container">
+            <button class="proceed-button" onclick="proceed()">Proceed</button>
+            <button class="cancel-button" onclick="cancel()">Cancel</button>
+        </div>
+    </div>
+</body>
+</html>
+
+

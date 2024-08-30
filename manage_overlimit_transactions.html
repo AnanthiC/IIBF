@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Overlimit Transactions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f7fa; /* Light blue background */
+            margin: 0;
+            padding: 20px;
+        }
+        .section {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+        }
+        h1 {
+            color: #333;
+            font-size: 24px;
+        }
+        p {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        .toggle-section {
+            margin-top: 20px;
+        }
+        .toggle-section h2 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .toggle-section p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 40px;
+            height: 20px;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 12px;
+            width: 12px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: #007bff; /* Blue when checked */
+        }
+        input:checked + .slider:before {
+            transform: translateX(20px);
+        }
+        .faq-section {
+            margin-top: 20px;
+        }
+        .faq-section h3 {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .faq-section p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .faq-section li {
+            margin-bottom: 10px;
+        }
+        .confirm-section {
+            margin-top: 20px;
+        }
+        .confirm-section p {
+            color: #666;
+            font-size: 14px;
+        }
+        .confirm-section label {
+            margin-right: 10px;
+        }
+        .confirm-section button {
+            background-color: #007bff; /* Blue button */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .confirm-section button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        .confirm-section button:hover:not(:disabled) {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <h1>Manage Overlimit Transactions</h1>
+        <p>Allow overlimit transactions beyond your credit limit.</p>
+        
+        <div class="toggle-section">
+            <p>Enable/Disable transactions over and above your credit limit.</p>
+            <h2>Overlimit Transactions</h2>
+            <p>Please provide consent to allow overlimit transactions beyond your credit limit. For Overlimit amount, refer to FAQ number 1.</p>
+            <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <div class="faq-section">
+            <h3>Frequently asked questions about Overlimit</h3>
+            <ul>
+                <li>
+                    <h3>1. What is Overlimit?</h3>
+                    <p>As a service gesture, SBI Card may approve certain transactions, attempted by the cardholder, which are over and above the credit limit, subject to the levy of Overlimit Fee. Overlimit amount can go up to 50% of the account’s assigned credit limit, subject to internal policy. For more information on Fee and Charges, please refer to 'Schedule of Charges' section in the Most Important Terms & Conditions (MITC) on our website.</p>
+                </li>
+                <li>
+                    <h3>2. How is it different from Credit Limit Increase?</h3>
+                    <p>Credit Limit Increase is an incremental limit offered on the card over and above the previously assigned credit limit and is subject to internal policy and supportive documentation. Overlimit facility is consent-based and transaction-specific, quickly allowing a buffer limit to be utilized.</p>
+                </li>
+                <li>
+                    <h3>3. How to modify consent in future?</h3>
+                    <p>You can always log in to your SBI Card online account and go to ‘Manage Overlimit Transactions’ in the ‘Manage Card Usage’ section and modify the consent with OTP based confirmation.</p>
+                </li>
+                <li>
+                    <h3>4. Is it applicable for this card only?</h3>
+                    <p>All the cards under an account will be able to access the Overlimit facility, with a one-time consent.</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="confirm-section">
+            <p>
+                <label>
+                    <input type="checkbox" id="termsCheckbox">
+                    I have read the <a href="#">Terms and Conditions</a> in relation to overlimit utilization and agree to the same.
+                </label>
+            </p>
+            <button id="confirmButton" disabled>Confirm</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('termsCheckbox').addEventListener('change', function() {
+            document.getElementById('confirmButton').disabled = !this.checked;
+        });
+
+        document.getElementById('confirmButton').addEventListener('click', function() {
+            alert('Confirmed successfully');
+        });
+    </script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <style>
+        /* Existing styles for other payment sections */
+        
+        /* New EMI Section Styles */
+        .emi-container {
+            background-color: #003366; /* Dark blue background color */
+            color: white; /* Text color */
+            padding: 40px; /* Increased padding */
+            border-radius: 10px;
+            width: 80%; /* Increased width */
+            max-width: 600px; /* Maximum width */
+            height: 80%; /* Increased height */
+            max-height: 600px; /* Maximum height */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            display: none; /* Hidden by default */
+            margin: 20px auto;
+            position: fixed; /* Fixed position */
+            top: 50%; /* Center vertically */
+            left: 50%; /* Center horizontally */
+            transform: translate(-50%, -50%); /* Center the container */
+            overflow: auto; /* Enable scrolling if content overflows */
+        }
+        .emi-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .emi-details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .emi-details div {
+            text-align: left;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .form-group .cvv-input {
+            width: 60px;
+            display: inline-block;
+        }
+        .form-group .expiry-input {
+            width: 50px;
+            display: inline-block;
+        }
+        .save-card {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .save-card input {
+            margin-right: 10px;
+        }
+        .pay-button {
+            width: 100%;
+            padding: 10px;
+            background-color: #002244; /* Darker blue for button */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .pay-button:hover {
+            background-color: #001a33; /* Even darker blue on hover */
+        }
+        .amount-section {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .amount-section h3 {
+            margin: 0;
+            margin-right: 10px;
+        }
+    </style>
+    <script>
+        function showEmiSection() {
+            document.getElementById('emi-container').style.display = 'block';
+            // Optionally hide other sections if needed
+            // document.getElementById('other-section').style.display = 'none';
+        }
+
+        function payEmi() {
+            alert("Payment Successful");
+            // Optionally, redirect to another page after the alert if needed
+            // window.location.href = "success.html";
+        }
+
+        function updateAmount() {
+            const amountInput = document.getElementById('amount');
+            const amountDisplay = document.getElementById('amount-display');
+            amountDisplay.textContent = `₹${amountInput.value}`;
+        }
+    </script>
+</head>
+<body>
+    <!-- Existing sections of payment.html -->
+    
+    <div class="buttons">
+        <button class="button" onclick="showEmiSection()">Pay via EMI</button>
+    </div>
+
+    <!-- New EMI Payment Section -->
+    <div id="emi-container" class="emi-container">
+        <h2>EMI Payment</h2>
+        <div class="emi-details">
+            <div>
+                <p>EMI</p>
+                <p id="amount-display">₹0</p>
+            </div>
+            <div>
+                <p>Tenure</p>
+                <p>3 Months</p>
+            </div>
+            <div>
+                <p>Interest</p>
+                <p>16%</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="card-number">Card Number</label>
+            <input type="text" id="card-number" placeholder="Enter card number">
+        </div>
+        <div class="form-group">
+            <label for="expiry-date">Expiry</label>
+            <input type="text" id="expiry-date" placeholder="MM / YY" class="expiry-input">
+        </div>
+        <div class="form-group">
+            <label for="cvv">CVV</label>
+            <input type="text" id="cvv" placeholder="•••" class="cvv-input">
+        </div>
+        <div class="form-group">
+            <label for="name">Card Holder's Name</label>
+            <input type="text" id="name" placeholder="Enter card holder's name">
+        </div>
+        <div class="form-group">
+            <label for="amount">Payment Amount</label>
+            <input type="text" id="amount" placeholder="Enter amount" oninput="updateAmount()">
+        </div>
+        <div class="save-card">
+            <input type="checkbox" id="save-card">
+            <label for="save-card">Save card securely for future payments</label>
+        </div>
+        <div class="amount-section">
+            <h3 id="amount-display">₹0</h3>
+        </div>
+        <div class="amount-section">
+            <button class="pay-button" onclick="payEmi()">Pay via EMI</button>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+

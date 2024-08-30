@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Statements</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .section {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+        }
+        .statement-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .statement-date {
+            margin-top: 10px;
+        }
+        .statement-summary {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .summary-item {
+            flex: 1;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-right: 10px;
+        }
+        .summary-item:last-child {
+            margin-right: 0;
+        }
+        .account-summary {
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            padding: 20px;
+        }
+        .account-summary-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .account-summary-table th, .account-summary-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <h1>Card Statements</h1>
+        <p>View and download your Card statements for the last 24 months. If you are using a public/shared computer, please remember to delete the downloaded statements from the default download folder or from the temporary internet files of your computer.</p>
+        <div class="statement-header">
+            <div>
+                <label for="statementDate">Select Statement Date:</label>
+                <select id="statementDate">
+                    <option value="15-Jul-2024">15-Jul-2024</option>
+                    <!-- Add more options as needed -->
+                </select>
+            </div>
+            <button>Download</button>
+        </div>
+        <div class="statement-date">
+            <p><strong>Date</strong></p>
+            <p>Statement Date: 15/07/2024</p>
+            <p>Payment Due Date: 04/08/2024</p>
+        </div>
+        <div class="statement-summary">
+            <div class="summary-item">
+                <p><strong>Outstanding</strong></p>
+                <p>Total: ₹ 0 <span style="color: green;">&#x2714; PAID</span></p>
+                <p>Minimum: ₹ 0</p>
+            </div>
+            <div class="summary-item">
+                <p><strong>Credit Limit</strong></p>
+                <p>Total: ₹ 24,000</p>
+                <p>Available: ₹ 24,000</p>
+            </div>
+            <div class="summary-item">
+                <p><strong>Cash Limit</strong></p>
+                <p>Total: ₹ 50</p>
+                <p>Available: ₹ 50</p>
+            </div>
+        </div>
+        <div class="account-summary">
+            <p><strong>Account Summary</strong></p>
+            <table class="account-summary-table">
+                <tr>
+                    <th>Previous Balance (₹)</th>
+                    <th>Purchases/Other Debits (₹)</th>
+                    <th>Payment/Reversals Other Credit (₹)</th>
+                    <th>Total Outstanding (₹)</th>
+                </tr>
+                <tr>
+                    <td>-1382.65</td>
+                    <td>5,422.08</td>
+                    <td>4,040</td>
+                    <td>-1</td>
+                </tr>
+            </table>
+        </div>
+        <a href="accounts.html">Back to My Accounts</a>
+    </div>
+</body>
+</html>
+

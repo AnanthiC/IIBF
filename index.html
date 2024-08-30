@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Card Statement</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #002f6c; /* Dark Blue */
+            color: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .sidebar-content {
+            flex-grow: 1;
+        }
+        .sidebar h1 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .sidebar p {
+            margin: 5px 0;
+        }
+        .sidebar p.email {
+            margin-bottom: 20px; /* Add space after email */
+        }
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px 0;
+            margin-bottom: 10px;
+        }
+        .sidebar a:hover {
+            background-color: #335abf;
+        }
+        .main-content {
+            flex: 1;
+            background-color: white;
+            padding: 20px;
+        }
+        .top-bar {
+            background-color: #002f6c; /* Dark Blue */
+            color: white;
+            padding: 10px;
+            text-align: right;
+            position: relative;
+        }
+        .top-bar a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+        .top-bar span {
+            margin-left: 20px;
+            cursor: pointer; /* Add pointer cursor to clickable elements */
+        }
+        .top-bar .hidden {
+            display: none; /* Hide unwanted elements */
+        }
+        .header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 0;
+            background-color: #e0e0e0; /* Light Gray for a light background */
+            border-bottom: 1px solid #ddd;
+        }
+        .header img {
+            max-width: 500px; /* Set a max width to make the image smaller */
+            height: auto;
+        }
+        .card-info {
+            background-color: #f8f8f8;
+            padding: 20px;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .card-info img {
+            height: 100px;
+        }
+        .statement-details {
+            background-color: #f8f8f8;
+            padding: 20px;
+            border: 1px solid #ddd;
+        }
+        .statement-details h3 {
+            color: #002f6c; /* Dark Blue */
+        }
+        .statement-details p {
+            color: #002f6c; /* Dark Blue */
+        }
+        .account-summary {
+            background-color: #f8f8f8;
+            padding: 20px;
+            border: 1px solid #ddd;
+        }
+        .account-summary h2 {
+            color: #002f6c; /* Dark Blue */
+        }
+        .account-summary .section {
+            margin-bottom: 20px;
+        }
+        .account-summary .section h3 {
+            color: #002f6c; /* Dark Blue */
+        }
+        .account-summary .section p {
+            color: #002f6c; /* Dark Blue */
+        }
+        .buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .button {
+            padding: 10px 20px;
+            background-color: #002f6c; /* Dark Blue */
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #001f4a; /* Darker shade of blue */
+        }
+        .status-paid {
+            color: green;
+        }
+        .sidebar-bottom {
+            margin-top: 20px;
+        }
+        /* Popup styles */
+        #logoutPopup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 9999;
+            text-align: center;
+            border-radius: 10px;
+        }
+        #logoutPopup h2 {
+            color: #002f6c; /* Dark Blue */
+        }
+        #logoutPopup button {
+            padding: 10px 20px;
+            background-color: #002f6c;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        #logoutPopup button:hover {
+            background-color: #001f4a;
+        }
+    </style>
+    <script>
+        function showLogoutPopup() {
+            // Show the logout popup
+            document.getElementById('logoutPopup').style.display = 'block';
+
+            // Hide the entire page after 2 seconds
+            setTimeout(function() {
+                document.body.style.display = 'none';
+            }, 2000); // 2000 milliseconds = 2 seconds
+        }
+
+        function closePopup() {
+            // Hide the popup
+            document.getElementById('logoutPopup').style.display = 'none';
+            
+            // Hide the entire page
+            document.body.style.display = 'none';
+        }
+
+        function updateDateTime() {
+            const now = new Date();
+            const dateOptions = { day: '2-digit', month: 'short', year: 'numeric' };
+            const timeOptions = { hour: '2-digit', minute: '2-digit' };
+            const dateString = now.toLocaleDateString('en-US', dateOptions);
+            const timeString = now.toLocaleTimeString('en-US', timeOptions);
+            document.getElementById('currentDate').textContent = dateString;
+            document.getElementById('currentTime').textContent = timeString;
+
+            // Update the last login time
+            document.getElementById('lastLogin').textContent = `Last Login: ${dateString}, ${timeString}`;
+        }
+
+        window.onload = function() {
+            updateDateTime();
+        };
+    </script>
+</head>
+<body>
+    <div class="top-bar">
+        <span id="currentDate"></span> <!-- Current Date -->
+        <span id="currentTime"></span> <!-- Current Time -->
+        <a href="contact-us.html">Contact Us</a> <!-- Contact Us link -->
+        <span onclick="location.href='my_alert.html'">My Alert</span> <!-- Updated My Alert to go to new page -->
+        <span onclick="showLogoutPopup()">Log out</span> <!-- Log out functionality -->
+    </div>
+    <div class="container">
+        <div class="sidebar">
+            <div class="sidebar-content">
+                <h1>XXXXXXXXXXXXX</h1>
+                <p id="lastLogin">Last Login: --, --:--</p> <!-- Placeholder for last login -->
+                <p class="email">Email: MAXXXXXXXX@HOTMAIL.COM</p> <!-- Space added after email -->
+                <p>Mobile: XXXXXX9116</p>
+                <a href="profile.html">My Profile</a>
+                <a href="accounts.html">My Accounts</a>
+                <a href="emi.html">EMI & More</a>
+                <a href="estore.html">E-Store</a>
+                <a href="benefits.html">Benefits</a>
+                <a href="credit_score.html">Credit Card Score</a>
+                <a href="manage_card_usage.html">Manage Card Usage</a>
+                <a href="offers.html">Offers</a>
+                <a href="rewards.html">Rewards</a>
+                <a href="services.html">Services</a>
+                <a href="insurance.html">Insurance</a>
+            </div>
+            <div class="sidebar-bottom">
+                <!-- Add extra space below the links -->
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="header">
+                <img src="simply click.jpg" alt="SBI Card">
+            </div>
+            <div class="card-info">
+                <div>
+                    <h2>My Card</h2>
+                    <p>XXXX-XXXX-XXXX-3997</p>
+                </div>
+                <img src="credit card.jpg" alt="Card Image">
+            </div>
+            <div class="statement-details">
+                <div class="section">
+                    <h3>Statement Date: 15 Jul 2024</h3>
+                    <h3>Payment Due Date: 04 Aug 2024</h3>
+                    <p>Minimum Amount Due: ₹ 0</p>
+                    <p>Total Amount Due: ₹ -1</p>
+                    <p class="status-paid">PAID</p>
+                    <div class="buttons">
+                        <button class="button" onclick="location.href='payment.html'">Pay Now</button>
+                        <button class="button" onclick="location.href='emi_payment.html'">Pay via EMI</button>
+                    </div>
+                </div>
+            </div>
+            <div class="account-summary">
+                <h2>Your account summary as on 26 Jul 2024</h2>
+                <div class="section">
+                    <h3>Current Outstanding</h3>
+                    <p>Total: ₹ -0.57</p>
+                    <p>Unbilled: ₹ -1</p>
+                </div>
+                <div class="section">
+                    <h3>Last Payment Made</h3>
+                    <p>Amount: ₹ 3,334</p>
+                    <p>Date: 13 Jul 2024</p>
+                </div>
+                <div class="section">
+                    <h3>Credit Limit</h3>
+                    <p>Total: ₹ 24,000</p>
+                    <p>Available: ₹ 24,000.57</p>
+                    <p>Utilization: 0%</p>
+                </div>
+                <div class="section">
+                    <h3>Cash Limit</h3>
+                    <p>Total: ₹ 50</p>
+                    <p>Available: ₹ 50</p>
+                    <p>Utilization: 0%</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Logout Popup -->
+    <div id="logoutPopup">
+        <h2>Logged out successfully!</h2>
+        <button onclick="closePopup()">Close</button>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redeem Rewards</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #ffffff;
+        }
+        h1 {
+            color: #007BFF;
+        }
+        .card-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .card-info select {
+            margin-left: 10px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .rewards-history {
+            margin-top: 20px;
+        }
+        .rewards-history h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .rewards-history p {
+            color: #555;
+        }
+        .no-transactions {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #e7f3ff;
+            text-align: center;
+            color: #777;
+        }
+        .help-link {
+            float: right;
+            color: #007BFF;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+        .help-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card-info">
+            <label for="card-select">My Card</label>
+            <select id="card-select">
+                <option value="XXXX-XXXX-XXXX-3997">XXXX-XXXX-XXXX-3997</option>
+                <!-- Add more options if needed -->
+            </select>
+        </div>
+        <div class="rewards-history">
+            <h2>Rewards History</h2>
+            <p>View all reward transactions and redemptions on this card.</p>
+           
+        </div>
+        <div class="no-transactions">
+            No transactions found.
+        </div>
+    </div>
+    <a href="rewards.html">Back to Rewards</a>
+</body>
+</html>

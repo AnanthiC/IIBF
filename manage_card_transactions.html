@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Card Transactions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e6f2ff; /* Light blue background */
+            margin: 0;
+            padding: 20px;
+            color: #333; /* Dark text for better readability on light background */
+        }
+        .section {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            color: #000; /* Black text inside the section */
+        }
+        .card-management {
+            margin-top: 20px;
+        }
+        .card-management select {
+            padding: 5px;
+            margin-bottom: 20px;
+        }
+        .transaction-type {
+            margin-bottom: 20px;
+        }
+        .transaction-type h3 {
+            margin-bottom: 10px;
+            color: #007bff; /* Blue headers */
+        }
+        .toggle {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .toggle label {
+            margin-right: 10px;
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 34px;
+            height: 20px;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 20px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 12px;
+            width: 12px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: #007bff; /* Blue slider when checked */
+        }
+        input:checked + .slider:before {
+            transform: translateX(14px);
+        }
+        .spend-limits {
+            margin-top: 20px;
+        }
+        .spend-limits h3 {
+            margin-bottom: 10px;
+            color: #007bff; /* Blue headers */
+        }
+        .spend-limits button {
+            padding: 10px 20px;
+            margin-right: 10px;
+            border: none;
+            background-color: #007bff; /* Blue buttons */
+            color: white;
+            cursor: pointer;
+        }
+        .spend-limits button.cancel {
+            background-color: #ccc;
+            color: #000; /* Black text for Cancel button */
+        }
+    </style>
+    <script>
+        function handleSubmit() {
+            alert("Successfully Submitted");
+        }
+
+        function handleCancel() {
+            alert("Canceled");
+        }
+    </script>
+</head>
+<body>
+    <div class="section">
+        <h1>Manage Card Transactions</h1>
+        <p>Manage your Card Transactions for Domestic and International Usage</p>
+        <div class="card-management">
+            <label for="select-card">Select Your Card</label>
+            <select id="select-card">
+                <option value="3997">XXXXXXXXXXXX3997</option>
+            </select>
+        </div>
+        <div class="transaction-type">
+            <h3>Online Transactions</h3>
+            <div class="toggle">
+                <label for="online-domestic">Domestic</label>
+                <label class="switch">
+                    <input type="checkbox" id="online-domestic" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="toggle">
+                <label for="online-international">International</label>
+                <label class="switch">
+                    <input type="checkbox" id="online-international" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+        <div class="transaction-type">
+            <h3>Point of Sales (POS) Transactions</h3>
+            <div class="toggle">
+                <label for="pos-domestic">Domestic</label>
+                <label class="switch">
+                    <input type="checkbox" id="pos-domestic" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="toggle">
+                <label for="pos-international">International</label>
+                <label class="switch">
+                    <input type="checkbox" id="pos-international" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+        <div class="transaction-type">
+            <h3>Contactless Transactions</h3>
+            <div class="toggle">
+                <label for="contactless-domestic">Domestic</label>
+                <label class="switch">
+                    <input type="checkbox" id="contactless-domestic">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="toggle">
+                <label for="contactless-international">International</label>
+                <label class="switch">
+                    <input type="checkbox" id="contactless-international">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+        <div class="transaction-type">
+            <h3>ATM Transactions</h3>
+            <div class="toggle">
+                <label for="atm-domestic">Domestic</label>
+                <label class="switch">
+                    <input type="checkbox" id="atm-domestic" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="toggle">
+                <label for="atm-international">International</label>
+                <label class="switch">
+                    <input type="checkbox" id="atm-international" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+        <div class="spend-limits">
+            <h3>Set Your Spend Limits</h3>
+            <p>Set your individual category usage as per billing cycle credit limit</p>
+            <button type="button" onclick="handleSubmit()">Submit</button>
+            <button type="button" class="cancel" onclick="handleCancel()">Cancel</button>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+

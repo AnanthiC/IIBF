@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5; /* Light grey background for the body */
+            color: #333; /* Dark grey text color for readability */
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #ffffff; /* White background for the container */
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px; /* Rounded corners */
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        .header h1 {
+            margin: 0;
+            color: #007bff; /* Blue color for header text */
+        }
+        .tabs {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        .tab {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            cursor: pointer;
+            background-color: #f4f4f4; /* Light grey background for tabs */
+            color: #333; /* Dark grey text color for tabs */
+        }
+        .tab.active {
+            background-color: #007bff; /* Blue background for active tab */
+            color: white; /* White text color for active tab */
+            border-bottom: none;
+        }
+        .content {
+            padding: 20px 0;
+        }
+        .content h2 {
+            margin: 0 0 10px 0;
+            color: #007bff; /* Blue color for section headers */
+        }
+        .content p {
+            margin: 5px 0;
+            color: #333; /* Dark grey text color for paragraphs */
+        }
+        .content .button {
+            background-color: #007bff; /* Blue background for buttons */
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px; /* Rounded corners for buttons */
+        }
+        .content .button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+        .hidden {
+            display: none;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333; /* Dark grey color for labels */
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .info-box {
+            border: 1px solid #ddd;
+            padding: 20px;
+            background-color: #e9ecef; /* Light grey background for info box */
+            margin-top: 20px;
+            border-radius: 4px; /* Rounded corners */
+        }
+        .info-box p {
+            margin: 10px 0;
+        }
+        /* Styles specifically for the Change Password section */
+        #password {
+            background-color: #ffffff; /* White background for the Change Password section */
+            color: #333; /* Dark grey text color */
+            padding: 20px;
+            border-radius: 8px; /* Rounded corners */
+        }
+        #password a {
+            color: #007bff; /* Blue color for links */
+        }
+        #password a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>My Profile</h1>
+        </div>
+        <div class="tabs">
+            <div class="tab active" onclick="showTab('contact')">Quick Contact</div>
+            <div class="tab" onclick="showTab('address')">Address</div>
+            <div class="tab" onclick="showTab('ckyc')">CKYC Details</div>
+            <div class="tab" onclick="showTab('international')">International Number</div>
+            <div class="tab" onclick="showTab('password')">Change Password</div>
+        </div>
+        <div class="content" id="contact">
+            <h2>Contact Details</h2>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="primaryCard">Primary Card:</label>
+                    <input type="text" id="primaryCard" name="primaryCard" required>
+                </div>
+                <div class="form-group">
+                    <label for="emailId">Email ID:</label>
+                    <input type="email" id="emailId" name="emailId" required>
+                </div>
+                <div class="form-group">
+                    <label for="mobileNumber">Mobile Number:</label>
+                    <input type="tel" id="mobileNumber" name="mobileNumber" required>
+                </div>
+                <button type="button" class="button" onclick="viewAndVerify()">View & Verify</button>
+            </form>
+        </div>
+        <div class="content hidden" id="viewContact">
+            <h2>Verify Contact Details</h2>
+            <p>View your contact details where you will receive Transaction notifications & One Time Passwords (OTP).</p>
+            <p><strong>Primary Card:</strong> <span id="viewPrimaryCard"></span></p>
+            <p><strong>Email ID:</strong> <span id="viewEmailId"></span></p>
+            <p><strong>Mobile Number:</strong> <span id="viewMobileNumber"></span></p>
+            <button class="button" onclick="confirmVerification()">Confirm</button>
+        </div>
+        <div class="content hidden" id="address">
+            <h2>Address Details</h2>
+            <form id="addressForm">
+                <div class="form-group">
+                    <label for="residenceAddress">Residence Address:</label>
+                    <input type="text" id="residenceAddress" name="residenceAddress" required>
+                </div>
+                <div class="form-group">
+                    <label for="addressContd">Address Contd:</label>
+                    <input type="text" id="addressContd" name="addressContd" required>
+                </div>
+                <div class="form-group">
+                    <label for="state">State:</label>
+                    <input type="text" id="state" name="state" required>
+                </div>
+                <div class="form-group">
+                    <label for="city">City:</label>
+                    <input type="text" id="city" name="city" required>
+                </div>
+                <div class="form-group">
+                    <label for="pincode">Pincode:</label>
+                    <input type="text" id="pincode" name="pincode" required>
+                </div>
+                <div class="form-group">
+                    <label for="landlineNumber">Landline Number:</label>
+                    <input type="text" id="landlineNumber" name="landlineNumber">
+                </div>
+                <button type="submit" class="button">Submit</button>
+            </form>
+        </div>
+        <div class="content hidden" id="ckyc">
+            <h2>CKYC Details</h2>
+            <form id="ckycForm">
+                <div class="form-group">
+                    <label for="ckycNumber">CKYC Number:</label>
+                    <input type="text" id="ckycNumber" name="ckycNumber" required>
+                </div>
+                <div class="form-group">
+                    <label for="dob">Date of Birth:</label>
+                    <input type="date" id="dob" name="dob" required>
+                </div>
+                <div class="form-group">
+                    <label for="panNumber">PAN Number:</label>
+                    <input type="text" id="panNumber" name="panNumber" required>
+                </div>
+                <button type="submit" class="button">Submit</button>
+            </form>
+        </div>
+        <div class="content hidden" id="international">
+            <h2>International Number</h2>
+            <div class="info-box">
+                <p>Hi, Update your international number to continue receiving transaction alerts and One Time Passwords (OTPs) when you are traveling abroad.</p>
+                <p>NOTE: FOR MAKING INTERNATIONAL TRANSACTIONS, PLEASE ENSURE YOUR CARD IS ACTIVATED. TO CHECK YOUR CARD'S INTERNATIONAL USAGE ACTIVATION STATUS PLEASE CLICK <a href="#" style="color: #007bff;">HERE</a>.</p>
+                <p>To update your international number, click on <a href="#" style="color: #007bff;">edit</a> link.</p>
+                <form id="internationalForm">
+                    <div class="form-group">
+                        <label for="internationalNumber">International Number:</label>
+                        <input type="text" id="internationalNumber" name="internationalNumber" required>
+                    </div>
+                    <button type="button" class="button" onclick="generateOtp()">Generate OTP</button>
+                </form>
+            </div>
+        </div>
+        <div class="content hidden" id="password">
+            <h2>Change Password</h2>
+            <p>Your password was last updated on 24-Jun-2024.</p>
+            <p>New password should not be the same as any of your previous 5 passwords.</p>
+            <form id="passwordForm">
+                <div class="form-group">
+                    <label for="currentPassword">Current Password:</label>
+                    <input type="password" id="currentPassword" name="currentPassword" required>
+                    <a href="#" style="color: #007bff;">Forgot current password?</a>
+                </div>
+                <div class="form-group">
+                    <label for="newPassword">New Password:</label>
+                    <input type="password" id="newPassword" name="newPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password:</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required>
+                </div>
+                <button type="submit" class="button">Submit</button>
+            </form>
+        </div>
+        <a href="index.html" class="button">Back to Credit Card Statement</a>
+    </div>
+    <script>
+        function showTab(tabId) {
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            const contents = document.querySelectorAll('.content');
+            contents.forEach(content => {
+                content.classList.add('hidden');
+            });
+
+            document.querySelector('.tab[onclick="showTab(\'' + tabId + '\')"]').classList.add('active');
+            document.getElementById(tabId).classList.remove('hidden');
+        }
+
+        function viewAndVerify() {
+            const primaryCard = document.getElementById('primaryCard').value;
+            const emailId = document.getElementById('emailId').value;
+            const mobileNumber = document.getElementById('mobileNumber').value;
+
+            alert('Contact details viewed and verified successfully');
+        }
+
+        function confirmVerification() {
+            alert('Contact details viewed and verified successfully');
+            showTab('contact');
+        }
+
+        function generateOtp() {
+            alert('OTP sent successfully');
+        }
+
+        document.getElementById('addressForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Address details submitted successfully');
+        });
+
+        document.getElementById('ckycForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('CKYC details submitted successfully');
+        });
+
+        document.getElementById('passwordForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Password changed successfully');
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+

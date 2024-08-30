@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #002f6c; /* Blue Background */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .payment-container {
+            background-color: white;
+            padding: 20px;
+            border: 1px solid #ddd;
+            width: 400px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .payment-container h2 {
+            color: #002f6c; /* Dark Blue */
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #002f6c; /* Dark Blue */
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .form-group textarea {
+            resize: none;
+        }
+        .pay-button {
+            width: 100%;
+            padding: 10px;
+            background-color: #002f6c; /* Dark Blue */
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .pay-button:hover {
+            background-color: #001f4a; /* Darker shade of blue */
+        }
+    </style>
+    <script>
+        function submitPayment() {
+            alert("Payment Successful");
+            // Optionally, redirect to another page after the alert if needed
+            // window.location.href = "success.html";
+        }
+    </script>
+</head>
+<body>
+    <div class="payment-container">
+        <h2>Payment Details</h2>
+        <div class="form-group">
+            <label for="card-number">Card Number</label>
+            <input type="text" id="card-number" placeholder="XXXX-XXXX-XXXX-XXXX">
+        </div>
+        <div class="form-group">
+            <label for="expiry-date">Expiry Date (MM/YY)</label>
+            <input type="text" id="expiry-date" placeholder="MM/YY">
+        </div>
+        <div class="form-group">
+            <label for="cvv">CVV</label>
+            <input type="text" id="cvv" placeholder="XXX">
+        </div>
+        <div class="form-group">
+            <label for="payment-amount">Payment Amount</label>
+            <input type="text" id="payment-amount" placeholder="₹">
+        </div>
+        <div class="form-group">
+            <label for="billing-address">Billing Address</label>
+            <textarea id="billing-address" rows="3" placeholder="Enter your billing address"></textarea>
+        </div>
+        <button class="pay-button" onclick="submitPayment()">Pay</button>
+    </div>
+</body>
+</html>
+
+
